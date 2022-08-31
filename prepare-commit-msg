@@ -4,7 +4,7 @@ const childProcessExec = require("child_process").exec;
 const fs = require("fs");
 
 const exec = util.promisify(childProcessExec);
-const TASK_REGEX = /TICKET_PREFIX-\d+/;
+const TASK_REGEX = new RegExp(/TICKET_PREFIX-\d+/, 'i');
 
 const message = fs.readFileSync(process.argv[2], "utf8").trim();
 
