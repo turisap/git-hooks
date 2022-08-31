@@ -16,7 +16,7 @@ async function makeCommitMsg() {
   const current = branches.stdout.split("\n").find((b) => b.charAt(0) === "*");
   const task_name = current.match(TASK_REGEX)[0];
   
-  if(task_name){
+  if(task_name && !TASK_REGEX.test(message)){
     const msg = `${message} \n[${task_name}]`;
     
     fs.writeFileSync(process.argv[2], msg);
