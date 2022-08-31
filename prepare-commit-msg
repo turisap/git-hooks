@@ -17,7 +17,8 @@ async function makeCommitMsg() {
   const task_name = current.match(TASK_REGEX)[0];
   
   if(task_name){
-    const msg = `${task_name} ${message}`;
+    const msg = `${message} \n[${task_name}]`;
+    
     fs.writeFileSync(process.argv[2], msg);
   }
 
